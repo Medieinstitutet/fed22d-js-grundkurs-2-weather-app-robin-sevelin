@@ -1,64 +1,81 @@
-@use "utils/a11y"; // Om det inte funkar, byt @use mot @import
-@use "vendor/reset";
+@use 'utils/a11y'; // Om det inte funkar, byt @use mot @import
+@use 'vendor/reset';
 
-:root {
-  // TODO: Går bra att radera kod även här!
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: rem(16px);
-  line-height: 24px;
-  font-weight: 400;
-  color-scheme: light dark;
-  color: rgb(255 255 255 / 87%);
-  background-color: #242424;
-  font-synthesis: none;
-  text-rendering: optimizelegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-size-adjust: 100%;
-}
-
-// TODO: Radera mig! Jag är bara ett exempel.
-main {
-  padding: 20px;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 1rem;
+  overflow-y: hidden;
 }
 
 .app {
-  margin-block: 20px;
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  border-radius: 1.5rem;
+  background-color: rgb(37 35 35);
+  opacity: 0.8;
+  color: white;
+  box-shadow: black 0 20px 30px -10px;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  border-radius: 3rem;
+  background-color: lightgreen;
+  padding: 1rem;
+  box-shadow: black 0 20px 30px -10px;
+  color: black;
+  transition: 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: darkolivegreen;
+  color: white;
+}
+
+.local-time,
+.icon,
+.temperature-value,
+.description,
+.location,
+.wind,
+.feels-like,
+.date,
+.button-container,
+.visibility {
+  margin: auto;
   display: flex;
-  gap: 20px;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
 
-  .card {
-    $card-size: 250px;
+.temperature-value {
+  font-size: 6rem;
+}
 
-    width: 0.6413 * $card-size;
-    height: $card-size;
-    cursor: pointer;
-    background: #102a3f;
-    border-radius: 8px;
-    display: flex;
-    font-weight: bold;
-    align-items: center;
-    justify-content: space-around;
-    text-align: center;
-    box-shadow: 5px 5px 5px rgb(0 0 0 / 20%);
+.error-container {
+  display: none;
+  text-align: center;
+  padding: 1rem;
+}
 
-    .front {
-      font-size: rem(50px);
-    }
+.forecast-container {
+  display: flex;
+  justify-content: space-evenly;
+}
 
-    .back {
-      display: none;
-    }
-
-    &.visible {
-      .front {
-        display: none;
-      }
-
-      .back {
-        display: block;
-      }
-    }
-  }
+.three-hour,
+.six-hour,
+.nine-hour {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
